@@ -3,4 +3,4 @@ class Solution:
         chars = [char for char in re.sub('[^\w]',' ',paragraph).lower().split() if char not in banned]
         counts = collections.Counter(chars)
 
-        return counts.most_common(1)[0][0]
+        return counts.most_common(1)[0][0] # Counter.most_common 
