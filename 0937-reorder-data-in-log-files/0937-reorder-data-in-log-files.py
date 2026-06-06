@@ -3,8 +3,7 @@ class Solution:
         digit = [] 
         letter = []
         for log in logs:
-            ident, lg = log.split(' ',1)
-            if lg.split()[0].isdigit():
+            if log.split()[1].isdigit():
                 digit.append(log)
             else:
                 letter.append(log)
