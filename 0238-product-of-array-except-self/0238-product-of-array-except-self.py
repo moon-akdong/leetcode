@@ -1,10 +1,5 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        left = 1 
-        right = 1 
-        left_product = []
-        right_product = [] 
-
         def element_product(nums,sub=1):
             for e in nums:
                 yield sub
