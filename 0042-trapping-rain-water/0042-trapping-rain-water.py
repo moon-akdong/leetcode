@@ -1,22 +1,24 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
-        # two pointer 
+        # stack 
+        stack = [] 
         volume = 0 
-        left, right = 0, len(height)-1
-        left_max, right_max = height[left], height[right]
+        for pos, hei in enumerate(height):
+        # Inflection Point - 변곡점
+            while stack and height[stack[-1]] < hei:
+                # volume 을 구하는 공식 
+                prev_pos = stack.pop() 
 
-        while left < right:
-            # 현재 높이와 이전 제일 높은 높이 비교 
-            left_max, right_max = max(left_max, height[left]), max(right_max,height[right])
-            
-            if left_max < right_max:
-                volume += left_max - height[left]
-                left +=1 
-            
-            elif left_max >= right_max:
-                volume += right_max - height[right]
-                right -=1 
+                if len(stack) == 0:
+                    break 
+                
+                dist = (pos - stack[-1]) -1
+                water_height = min(hei, height[stack[-1]]) - height[prev_pos]
 
+                volume += dist * water_height
+
+            # stack 쌓기
+            stack.append(pos)
         return volume 
 
-
+        
