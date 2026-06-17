@@ -1,25 +1,17 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        # out = [] 
-        # p = 1 
-        # for i in range(0,len(nums)):
-        #     out.append(p)
-        #     p = p*nums[i]
-        # p = 1
-        # for i in range(len(nums)-1,0-1,-1):
-        #     out[i] = out[i] * p
-        #     p = p* nums[i]
-        # return out
-        def element_product(nums,sub=1):
-            for e in nums:
+        # 좌우 곱셈 결과 
+        def products(nums,sub=1):
+            for num in nums:
                 yield sub
-                sub = sub * e
-                
-        it = element_product(nums)
-        it2= element_product(nums[::-1])
-        is2 = list(it2)[::-1]
-        print(is2)
+                sub *= num
         result = [] 
-        for left,right in zip(it,is2):
-            result.append(left * right)
-        return result
+        left = products(nums)
+        right = list(products(nums[::-1]))[::-1]
+
+        for ln, rn in zip(left,right):
+            result.append(ln * rn)
+        return result 
+
+
+
