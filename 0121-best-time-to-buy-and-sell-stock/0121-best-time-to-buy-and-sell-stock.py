@@ -2,7 +2,7 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         min_num = sys.maxsize
         profit = -sys.maxsize
-        if not profit:
+        if not prices:
             return 0 
             
         for p in prices:
