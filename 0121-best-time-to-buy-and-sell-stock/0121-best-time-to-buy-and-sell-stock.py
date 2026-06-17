@@ -10,4 +10,3 @@ class Solution:
             profit = max(profit, p - min_num)
 
         return profit 
-            
