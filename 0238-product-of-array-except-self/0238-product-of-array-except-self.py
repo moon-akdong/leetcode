@@ -18,7 +18,7 @@ class Solution:
         it = element_product(nums)
         it2= element_product(nums[::-1])
         is2 = list(it2)[::-1]
-
+        print(is2)
         result = [] 
         for left,right in zip(it,is2):
             result.append(left * right)
