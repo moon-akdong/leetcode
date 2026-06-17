@@ -17,10 +17,9 @@ class Solution:
                 
         it = element_product(nums)
         it2= element_product(nums[::-1])
-       
-        ls = list(it)
-        ls2 = list(it2)[::-1]
+        is2 = list(it2)[::-1]
+
         result = [] 
-        for i in range(len(ls)):
-            result.append(ls[i] * ls2[i])
+        for left,right in zip(it,is2):
+            result.append(left * right)
         return result
