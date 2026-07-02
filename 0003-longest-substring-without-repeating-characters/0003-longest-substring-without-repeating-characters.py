@@ -10,14 +10,14 @@ class Solution:
         used = collections.defaultdict(int)
 
         for ind,char in enumerate(s):
-            print(ind,start, char)
+            #print(ind,start, char)
             if char in used and start <= used[char]:
                 start = used[char] + 1 
 
             else:
                 length = max(length, ind - start + 1)
             used[char] = ind
-            print(length)
+            #print(length)
         return length
 
 
